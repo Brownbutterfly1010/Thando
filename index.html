@@ -148,17 +148,20 @@
     </head>     
     <body>
 
-  <!-- Audio Player under Title -->
+ <!-- Audio Player under Title -->
         <div class="audio-player">
-            <div class="audio-controls">
-                <audio autoplay loop>
-                    <source src="music.mp3" type="audio/mpeg">
-                </audio>
-            </div>
+            <!-- Play while you read label -->
             <div class="audio-text">
                 Play while you read
             </div>
+
+            <!-- Audio player with controls -->
+            <audio controls autoplay>
+                <source src="music.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
         </div>
+
 
         <section class="message">
             <p>I hope you didn’t open this early...</p>
