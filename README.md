@@ -1,2 +1,2 @@
-# Thando
+# Thando webpage
 I hope u like it took me hours...
