@@ -31,13 +31,14 @@
 
     
             
-        /* Audio Player Styles */
+       /* Audio Player Container Styles */
         .audio-player {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             background-color: #222;
-            padding: 10px 20px;
+            padding: 15px;
             border-radius: 30px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             max-width: 350px;
@@ -45,27 +46,18 @@
             width: 100%;
         }
 
-        .audio-player .audio-controls {
-            flex: 1;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .audio-player .audio-controls audio {
-            width: 100%;
-            background: none;
-            border: none;
-            color: #fff;
-        }
-
-        .audio-player .audio-text {
-            margin-left: 20px;
+        .audio-text {
             color: #fff;
             font-size: 1.2em;
             font-weight: bold;
+            margin-bottom: 10px;
         }
-              
+
+        /* Audio element styles */
+        audio {
+            width: 100%;
+            border-radius: 15px;
+        }
               .container {
                 max-width: 800px;
                 padding: 20px;
