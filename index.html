@@ -131,20 +131,38 @@
       right: 50px;
     }
 
+    .dock {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+}
+    
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+    body {
+  padding-bottom: 120px;
+}
+
+
     /* Responsive styles for mobile devices */
     @media screen and (max-width: 768px) {
       .window {
         width: 250px; /* Smaller windows on mobile */
         height: 300px; /* Decrease the height */
       }
+      
+#friend-facetime, #my-facetime, #notes-app {
+  position: relative; /* override absolute */
+  top: unset;
+  left: unset;
+  right: unset;
+  margin: 10px auto;
+}
 
-      #friend-facetime, #my-facetime, #notes-app {
-        top: auto;
-        left: 10px;
-        right: 10px;
-        margin-top: 20px;
-        z-index: 1;
-      }
 
       /* Reduce space between elements */
       #friend-facetime {
@@ -199,10 +217,26 @@
       #notes-app {
         top: 35%;
       }
+      .windows-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+  padding-bottom: 100px; /* space for the dock */
+}
+
     }
   </style>
 </head>
 <body>
+  
+  <div class="windows-container">
+  <div id="friend-facetime" class="window"> ... </div>
+  <div id="my-facetime" class="window"> ... </div>
+  <div id="notes-app" class="window"> ... </div>
+</div>
+
   <div id="friend-facetime" class="window">
     <div class="title-bar">
       <div class="dot red"></div>
