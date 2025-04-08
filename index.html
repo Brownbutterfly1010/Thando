@@ -187,4 +187,69 @@
   <div class="windows-container">
     <div id="friend-facetime" class="window">
       <div class="title-bar">
-        <
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <span>Bandile Facetime</span>
+      </div>
+      <div class="content video-content">
+        <video autoplay loop muted id="Bandile">
+          <source src="Bandile.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <div id="my-facetime" class="window">
+      <div class="title-bar">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <span>Thando Facetime</span>
+      </div>
+      <div class="content video-content">
+        <video autoplay loop muted id="Thando">
+          <source src="Thando.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <div id="notes-app" class="window">
+      <div class="title-bar">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <span>Notes</span>
+      </div>
+      <div class="content notes-content">
+        <p><b>Notes</b><br></p>
+        <p>Happy birthday, Happy birthday, Happy birthday, Happy birthday!</p>
+        <button class="view-notes-button" onclick="window.location.href='notes.html'">View Notes</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dock">
+    <img src="spotify.png" alt="App 1">
+    <img src="app2.png" alt="App 2">
+    <img src="app3.png" alt="App 3">
+    <img src="app4.png" alt="App 4">
+  </div>
+
+  <audio id="notification-sound" src="noti.mp3" preload="auto"></audio>
+  <audio id="facetime-sound" src="facetime.mp3" preload="auto"></audio>
+
+  <script>
+    window.onload = () => {
+      const facetimeSound = document.getElementById('facetime-sound');
+      facetimeSound.play();
+
+      setTimeout(() => {
+        const notificationSound = document.getElementById('notification-sound');
+        notificationSound.play();
+        const button = document.querySelector('.view-notes-button');
+        button.classList.add('beat');
+      }, 3000);
+    };
+  </script>
+</body>
+</html>
