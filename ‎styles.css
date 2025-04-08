@@ -1,0 +1,19 @@
+body {
+   font-family: 'Segoe UI', sans-serif;
+   background-color: #f6f0ff;
+   color: #333;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   flex-direction: column;
+ }
+ 
+ #bg-video {
+       position: fixed;
+       right: 0;
+       bottom: 0;
+       min-width: 100%;
+       min-height: 100%;
+       z-index: -1;
+     }
