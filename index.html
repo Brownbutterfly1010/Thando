@@ -1,5 +1,4 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -74,3 +73,66 @@
     .view-notes-button:hover {
       background-color: #6a1dbb;
     }
+
+    /* Heartbeat Animation */
+    @keyframes beat {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1); /* Slightly bigger */
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* This class will be added when we trigger the heartbeat effect */
+    .beat {
+      animation: beat 1s ease-in-out infinite;
+    }
+
+    /* Dock styles */
+    .dock {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+      z-index: 2;
+    }
+
+    .dock img {
+      width: 60px;
+      height: 60px;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .dock img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Specific positions to avoid overlap on desktop */
+    #friend-facetime {
+      top: 50px;
+      left: 50px;
+    }
+
+    #my-facetime {
+      top: 150px;
+      left: 400px;
+    }
+
+    #notes-app {
+      top: 300px;
+      right: 50px;
+    }
+
+    /* Responsive styles for mobile devices */
+    @media screen and (max-width: 768px) {
+      .window {
+        width: 250px; /* Smaller windows on mobile */
+        height: 300px; /* Decrease the*
