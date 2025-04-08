@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('wallpaper.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen;
+    }
+
+    .window {
+      position: absolute;
+      width: 300px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .title-bar {
+      background: #f1f1f1;
+      padding: 8px;
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .red { background: #ff5f57; }
+    .yellow { background: #ffbd2e; }
+    .green { background: #28c940; }
+
+    .content {
+      padding: 15px;
+    }
+
+    .video-content video {
+      width: 100%;
+      height: auto;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .notes-content p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .view-notes-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #8a2be2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s ease;
+      animation: none; /* Initially no animation */
+    }
+
+    .view-notes-button:hover {
+      background-color: #6a1dbb;
+    }
+
+    /* Heartbeat Animation */
+    @keyframes beat {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1); /* Slightly bigger */
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* This class will be added when we trigger the heartbeat effect */
+    .beat {
+      animation: beat 1s ease-in-out infinite;
+    }
+
+    /* Dock styles */
+    .dock {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+      z-index: 2;
+    }
+
+    .dock img {
+      width: 60px;
+      height: 60px;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .dock img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Specific positions to avoid overlap on desktop */
+    #friend-facetime {
+      top: 50px;
+      left: 50px;
+    }
+
+    #my-facetime {
+      top: 150px;
+      left: 400px;
+    }
+
+    #notes-app {
+      top: 300px;
+      right: 50px;
+    }
+
+    /* Responsive styles for mobile devices */
+    @media screen and (max-width: 768px) {
+      .window {
+        width: 250px; /* Smaller windows on mobile */
+        height: 300px; /* Decrease the height */
+      }
+
+      #friend-facetime, #my-facetime, #notes-app {
+        top: auto;
+        left: 10px;
+        right: 10px;
+        margin-top: 20px;
+        z-index: 1;
+      }
+
+      /* Reduce space between elements */
+      #friend-facetime {
+        top: 10%;
+      }
+
+      #my-facetime {
+        top: 25%;
+      }
+
+      #notes-app {
+        top: 40%;
+      }
+
+      .dock img {
+        width: 50px;
+        height: 50px;
+      }
+
+      /* Optional: Adjust button size for mobile */
+      .view-notes-button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+    }
+
+    /* Further adjustments for even smaller screens */
+    @media screen and (max-width: 375px) {
+      .window {
+        width: 220px;
+        height: 250px; /* Further reduce height for small screens */
+      }
+
+      .dock img {
+        width: 40px;
+        height: 40px;
+      }
+
+      #friend-facetime, #my-facetime, #notes-app {
+        left: 5px;
+        right: 5px;
+      }
+
+      #friend-facetime {
+        top: 5%;
+      }
+
+      #my-facetime {
+        top: 20%;
+      }
+
+      #notes-app {
+        top: 35%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="friend-facetime" class="window">
+    <div class="title-bar">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
+      <span>Bandile Facetime</span> <!-- Changed to "Bandile Facetime" -->
+    </div>
+    <div class="content video-content">
+        <video autoplay loop muted id="Bandile">
+            <source src="Bandile.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+
+  <div id="my-facetime" class="window">
+    <div class="title-bar">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
+      <span>Thando Facetime</span> <!-- Changed to "Thando Facetime" -->
+    </div>
+    <div class="content video-content">
+        <video autoplay loop muted id="Thando">
+            <source src="Thando.mp4" type="video/mp4" />
+      </video>
+      </video>
+    </div>
+  </div>
+
+  <div id="notes-app" class="window">
+    <div class="title-bar">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
+      <span>Notes</span>
+    </div>
+    <div class="content notes-content">
+      <p><b>Notes</b><br></p><p>Happy birthday, Happy birthday, Happy birthday, Happy birthday!</p>
+      <button class="view-notes-button" onclick="window.location.href='notes.html'">View Notes</button>
+    </div>
+  </div>
+
+  <!-- Add sound notifications -->
+  <audio id="notification-sound" src="noti.mp3" preload="auto"></audio>
+  <audio id="facetime-sound" src="facetime.mp3" preload="auto"></audio>
+
+  <div class="dock">
+    <img src="spotify.png" alt="App 1">
+    <img src="app2.png" alt="App 2">
+    <img src="app3.png" alt="App 3">
+    <img src="app4.png" alt="App 4">
+  </div>
+
+  <script>
+    window.onload = () => {
+      // Play the facetime sound immediately when the page loads
+      const facetimeSound = document.getElementById('facetime-sound');
+      facetimeSound.play();
+
+      // Play notification sound after 3 seconds
+      setTimeout(() => {
+        const notificationSound = document.getElementById('notification-sound');
+        notificationSound.play();
+
+        // Add the 'beat' class to the button to start the animation
+        const button = document.querySelector('.view-notes-button');
+        button.classList.add('beat');
+      }, 3000); // 3 seconds delay
+    };
+  </script>
+</body>
+</html>
