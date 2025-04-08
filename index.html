@@ -71,6 +71,17 @@
       margin: 15px 0;
     }
 
+    #bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+
 .gif {
     display: inline-block;
     width: 100px; /* Increased from 60px */
@@ -115,6 +126,12 @@
 </head>
 <body>
 
+<video autoplay muted loop id="bg-video">
+  <source src="video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+  
   <div class="container">
     <header>
       <h1>Happy Birthday, Bandile 🎉</h1>
