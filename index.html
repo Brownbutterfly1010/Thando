@@ -15,8 +15,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 9999;
+}
+
+.boot-content {
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .boot-content img {
@@ -242,6 +248,14 @@
   </style>
 </head>
 <body>
+  <div id="boot-screen">
+  <div class="boot-content">
+    <img src="apple-logo.png" alt="Apple Logo" />
+    <div class="loading-bar">
+      <div class="loading-progress"></div>
+    </div>
+  </div>
+</div>
 
   <div class="windows-container">
     <div id="friend-facetime" class="window">
@@ -296,13 +310,7 @@
 
   <audio id="notification-sound" src="noti.mp3" preload="auto"></audio>
   <audio id="facetime-sound" src="facetime.mp3" preload="auto"></audio>
-<div id="boot-screen">
-  <div class="boot-content">
-    <img src="apple.jpg" alt="Apple Logo" />
-    <div class="loading-bar">
-      <div class="loading-progress"></div>
-    </div>
-  </div>
+
 </div>
 
   <script>
