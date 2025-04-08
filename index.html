@@ -90,17 +90,22 @@
       animation: beat 1s ease-in-out infinite;
     }
 
-    .dock {
-      position: fixed;
-      bottom: 10px;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px;
-      z-index: 2;
-    }
+  .dock {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  gap: 20px;
+  z-index: 999;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 
     .dock img {
       width: 60px;
