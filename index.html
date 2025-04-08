@@ -11,15 +11,21 @@
       background: url('wallpaper.jpg') no-repeat center center fixed;
       background-size: cover;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      flex-direction: column;
     }
 
     .window {
-      position: absolute;
+      position: relative;
       width: 300px;
       background: white;
       border-radius: 10px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
+      margin: 20px 0;
       z-index: 1;
     }
 
@@ -67,7 +73,6 @@
       cursor: pointer;
       font-size: 16px;
       transition: background 0.3s ease;
-      animation: none; /* Initially no animation */
     }
 
     .view-notes-button:hover {
@@ -87,7 +92,6 @@
       }
     }
 
-    /* This class will be added when we trigger the heartbeat effect */
     .beat {
       animation: beat 1s ease-in-out infinite;
     }
@@ -115,48 +119,15 @@
       transform: scale(1.1);
     }
 
-    /* Specific positions to avoid overlap on desktop */
-    #friend-facetime {
-      top: 50px;
-      left: 50px;
-    }
-
-    #my-facetime {
-      top: 150px;
-      left: 400px;
-    }
-
-    #notes-app {
-      top: 300px;
-      right: 50px;
-    }
-
     /* Responsive styles for mobile devices */
     @media screen and (max-width: 768px) {
       .window {
-        width: 250px; /* Smaller windows on mobile */
-        height: 300px; /* Decrease the height */
+        width: 90%; /* Make windows responsive */
+        height: auto;
       }
 
       #friend-facetime, #my-facetime, #notes-app {
-        top: auto;
-        left: 10px;
-        right: 10px;
-        margin-top: 20px;
-        z-index: 1;
-      }
-
-      /* Reduce space between elements */
-      #friend-facetime {
-        top: 10%;
-      }
-
-      #my-facetime {
-        top: 25%;
-      }
-
-      #notes-app {
-        top: 40%;
+        margin: 0 auto; /* Center align windows */
       }
 
       .dock img {
@@ -164,40 +135,21 @@
         height: 50px;
       }
 
-      /* Optional: Adjust button size for mobile */
+      /* Adjust button size for mobile */
       .view-notes-button {
         font-size: 14px;
         padding: 8px 16px;
       }
     }
 
-    /* Further adjustments for even smaller screens */
-    @media screen and (max-width: 375px) {
+    @media screen and (max-width: 480px) {
       .window {
-        width: 220px;
-        height: 250px; /* Further reduce height for small screens */
+        width: 90%; /* Make windows even smaller on very small screens */
       }
 
       .dock img {
         width: 40px;
         height: 40px;
-      }
-
-      #friend-facetime, #my-facetime, #notes-app {
-        left: 5px;
-        right: 5px;
-      }
-
-      #friend-facetime {
-        top: 5%;
-      }
-
-      #my-facetime {
-        top: 20%;
-      }
-
-      #notes-app {
-        top: 35%;
       }
     }
   </style>
@@ -208,12 +160,12 @@
       <div class="dot red"></div>
       <div class="dot yellow"></div>
       <div class="dot green"></div>
-      <span>Bandile Facetime</span> <!-- Changed to "Bandile Facetime" -->
+      <span>Bandile Facetime</span>
     </div>
     <div class="content video-content">
         <video autoplay loop muted id="Bandile">
             <source src="Bandile.mp4" type="video/mp4" />
-      </video>
+        </video>
     </div>
   </div>
 
@@ -222,13 +174,12 @@
       <div class="dot red"></div>
       <div class="dot yellow"></div>
       <div class="dot green"></div>
-      <span>Thando Facetime</span> <!-- Changed to "Thando Facetime" -->
+      <span>Thando Facetime</span>
     </div>
     <div class="content video-content">
         <video autoplay loop muted id="Thando">
             <source src="Thando.mp4" type="video/mp4" />
-      </video>
-      </video>
+        </video>
     </div>
   </div>
 
