@@ -21,6 +21,7 @@
       min-height: 100vh;
       padding: 40px 20px;
       flex-direction: column;
+      overflow-x: hidden;
     }
 
     #bg-video {
@@ -32,6 +33,7 @@
       z-index: -1;
       object-fit: cover;
       filter: brightness(0.6);
+      animation: fadeIn 3s ease-out;
     }
 
     .container {
@@ -43,12 +45,17 @@
       border-radius: 20px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       text-align: center;
+      opacity: 0;
+      animation: slideUp 1s forwards ease-out;
     }
 
     header h1 {
       font-size: 2.8em;
       color: #e1a500;
       margin-bottom: 20px;
+      transform: translateY(-50px);
+      opacity: 0;
+      animation: fadeInUp 1.5s ease-out 0.5s forwards;
     }
 
     .audio-player {
@@ -58,6 +65,9 @@
       color: #2f2f2f;
       border: 1px solid #fffacd;
       margin-bottom: 30px;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeInUp 1.5s ease-out 1.5s forwards;
     }
 
     .audio-text {
@@ -75,12 +85,15 @@
       font-size: 1.05em;
       line-height: 1.6;
       margin-bottom: 1.2em;
+      opacity: 0;
+      animation: fadeInUp 2s ease-out 2s forwards;
     }
 
     .gif, .meme {
       width: 100px;
       height: auto;
       vertical-align: middle;
+      animation: bounce 1.5s ease-out infinite alternate;
     }
 
     .image img {
@@ -89,6 +102,8 @@
       margin: 30px auto;
       display: block;
       box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      opacity: 0;
+      animation: fadeInUp 1.5s ease-out 2.5s forwards;
     }
 
     .gift-button {
@@ -102,17 +117,125 @@
       font-weight: bold;
       margin-top: 35px;
       transition: all 0.3s ease;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeInUp 1.5s ease-out 3s forwards;
     }
 
     .gift-button:hover {
       background-color: #f4d03f;
-      transform: scale(1.03);
+      transform: scale(1.03) translateY(-5px);
     }
 
     footer {
       margin-top: 30px;
       font-size: 0.95em;
       color: #777;
+      opacity: 0;
+      animation: fadeInUp 1.5s ease-out 3.5s forwards;
+    }
+
+    /* Mobile optimization */
+    @media (max-width: 768px) {
+      body {
+        padding: 20px;
+      }
+
+      .container {
+        padding: 20px;
+        border-radius: 12px;
+      }
+
+      header h1 {
+        font-size: 2.2em;
+      }
+
+      .audio-text {
+        font-size: 1em;
+      }
+
+      .message p {
+        font-size: 1em;
+      }
+
+      .gif, .meme {
+        width: 80px;
+      }
+
+      .image img {
+        max-width: 100%;
+        margin: 20px 0;
+      }
+
+      .gift-button {
+        width: 100%;
+        padding: 16px;
+      }
+
+      footer {
+        font-size: 0.85em;
+      }
+    }
+
+    /* Smaller screens (phones) */
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.8em;
+      }
+
+      .audio-text {
+        font-size: 0.9em;
+      }
+
+      .message p {
+        font-size: 0.95em;
+      }
+
+      .gift-button {
+        padding: 12px 24px;
+        font-size: 1em;
+      }
+    }
+
+    /* Keyframes for animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-10px);
+      }
     }
   </style>
 </head>
@@ -159,14 +282,8 @@
     </section>
 
     <footer>
-      <p>Made with ❤️ by [Thando]</p>
+      <button class="gift-button">Here’s a little gift for you 💌</button>
     </footer>
-
-    <button class="gift-button" onclick="window.location.href='https://open.spotify.com/playlist/790jybTYRwNNZklHjQS9ZY?si=TK4gwImESqSbf7gth-WY5w'">
-      🎁 Your Gift Button
-    </button>
   </div>
-
 </body>
-    </html>
-        
+</html>
