@@ -306,8 +306,14 @@
     <img src="app4.png" alt="App 4">
   </div>
 
-  <!-- Facetime and Notification Sound -->
-  <audio id="facetime-sound" src="facetime.mp3" preload="auto"></audio>
+  <div class="audio-player">
+      <div class="audio-text">Play while you read</div>
+      <audio autoplay>
+        <audio id="facetime-sound" src="facetime.mp3" preload="auto"></audio>
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
   
   <script>
     window.onload = () => {
