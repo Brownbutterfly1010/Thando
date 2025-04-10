@@ -1,10 +1,20 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday</title>
   <style>
+    /* Prevent zooming affecting page layout */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+
+    /* Boot screen */
     #boot-screen {
       position: fixed;
       top: 0;
@@ -64,6 +74,7 @@
       }
     }
 
+    /* Body background */
     body {
       margin: 0;
       padding: 0;
@@ -73,9 +84,19 @@
       padding-bottom: 120px;
     }
 
-    html {
-      scroll-behavior: smooth;
-      overflow-x: hidden;
+    /* Prevent zoom scale affecting elements */
+    * {
+      transform-origin: top left;
+      -webkit-transform: none;
+      -moz-transform: none;
+      -ms-transform: none;
+      transform: none;
+    }
+
+    /* Windows and dock */
+    .dock, .windows-container, .window {
+      position: fixed !important; /* Lock positions */
+      z-index: 9999; /* Ensure they're above other content */
     }
 
     .window {
@@ -149,6 +170,7 @@
       animation: beat 1s ease-in-out infinite;
     }
 
+    /* Dock styles */
     .dock {
       position: fixed;
       bottom: 20px;
@@ -176,6 +198,7 @@
       transform: scale(1.1);
     }
 
+    /* Position of windows */
     #friend-facetime {
       top: 50px;
       left: 50px;
@@ -242,40 +265,6 @@
         left: 5px;
         right: 5px;
       }
-      /* Fix elements to avoid shifting while zooming */
-* {
-  transform: translateZ(0); /* Ensures elements don't shift when zoomed */
-}
-
-/* Lock body scale without affecting boot screen */
-body {
-  transform: scale(1);
-  transform-origin: top left;
-  overflow-x: hidden; /* Prevents horizontal scrolling */
-}
-
-/* Ensure no changes to the boot screen */
-#boot-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-/* Any other elements you want to lock in place */
-.dock, .windows-container, .window {
-  position: fixed; /* Lock window positions */
-  top: 0; /* You can adjust this */
-  left: 0; /* You can adjust this */
-  z-index: 999;
-}
-
     }
   </style>
 </head>
@@ -348,27 +337,7 @@ body {
       const bootScreen = document.getElementById('boot-screen');
       setTimeout(() => {
         bootScreen.style.display = 'none';
-
-        // Play facetime sound after boot screen is hidden
-        const facetimeSound = document.getElementById('facetime-sound');
-        facetimeSound.volume = 1;  // Set volume to max
-        facetimeSound.play().catch(error => {
-          console.log("Facetime sound play error: ", error);
-        });
-
-          setTimeout(() => {
-           // Play notification sound after 3 seconds
-           const notificationSound = document.getElementById('notification-sound');
-           notificationSound.volume = 1;  // Set volume to max
-           notificationSound.play().catch(error => {
-             console.log("Notification sound play error: ", error);
-           });
- 
-          // Add animation to button
-          const button = document.querySelector('.view-notes-button');
-          button.classList.add('beat');
-        }, 3000);
-      }, 3000); // Hide boot screen after 3.5s
+      }, 5000);
     };
   </script>
 </body>
