@@ -322,14 +322,7 @@
           console.log("Facetime sound play error: ", error);
         });
 
-        setTimeout(() => {
-          // Play notification sound after 3 seconds
-          const notificationSound = document.getElementById('notification-sound');
-          notificationSound.volume = 1;  // Set volume to max
-          notificationSound.play().catch(error => {
-            console.log("Notification sound play error: ", error);
-          });
-
+       
           // Add animation to button
           const button = document.querySelector('.view-notes-button');
           button.classList.add('beat');
