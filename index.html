@@ -18,12 +18,21 @@
       z-index: 9999;
     }
 
- html {
+body {
+  margin: 0;
+  padding: 0;
+  background: url('wallpaper.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen;
+  padding-bottom: 120px;
+  transform: scale(1);
+  transform-origin: top left;
+}
+
+html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  touch-action: manipulation;
-  -ms-touch-action: manipulation;
-  user-select: none; /* Optional, prevents text selection */
+  user-select: none;
 }
 
       display: flex;
